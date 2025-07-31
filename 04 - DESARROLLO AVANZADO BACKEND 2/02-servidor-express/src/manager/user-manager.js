@@ -6,15 +6,15 @@ class UserManager {
     this.path = path;
   }
 
-  async getUsers() {
+  getUsers = async () => {
     if (fs.existsSync(this.path)) {
       const users = await fs.promises.readFile(this.path, "utf-8");
       return JSON.parse(users);
     }
     return [];
-  }
+  };
 
-  async getUserById(id) {
+  getUserById = async (id) => {
     try {
       const users = await this.getUsers();
       const user = users.find((user) => user.id === id);
@@ -23,9 +23,9 @@ class UserManager {
     } catch (error) {
       throw error;
     }
-  }
+  };
 
-  async register(obj) {
+  register = async (obj) => {
     const user = { ...obj };
     const users = await this.getUsers();
     user.secret = crypto.randomBytes(128).toString();
@@ -36,9 +36,9 @@ class UserManager {
     users.push(user);
     await fs.promises.writeFile(this.path, JSON.stringify(users));
     return { user: user.username };
-  }
+  };
 
-  async login(username, password) {
+  login = async (username, password) => {
     const users = await this.getUsers();
     const user = users.find((user) => user.username === username);
     if (!user) return "Usuario no encontrado";
@@ -53,7 +53,35 @@ class UserManager {
       username: user.username,
       message: "Login exitoso",
     };
-  }
+  };
+
+  update = async (obj, id) => {
+    try {
+      const users = await this.getUsers();
+      let userExist = await this.getUserById(id);
+      userExist = { ...userExist, ...obj };
+      const newArray = users.filter((u) => u.id !== id);
+      newArray.push(userExist);
+      await fs.promises.writeFile(this.path, JSON.stringify(newArray));
+      return userExist;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  delete = async (id) => {
+    try {
+      const users = await this.getUsers();
+      if (users.length > 0) {
+        const user = await this.getUserById(id);
+        const newArray = users.filter((u) => u.id !== id);
+        await fs.promises.writeFile(this.path, JSON.stringify(newArray));
+        return user;
+      }
+    } catch (error) {
+      throw error;
+    }
+  };
 }
 
 export const userManager = new UserManager("./src/data/users.json");
