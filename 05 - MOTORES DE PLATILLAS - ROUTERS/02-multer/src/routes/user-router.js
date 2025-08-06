@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { userManager } from "../manager/user-manager.js";
 import { userValidator } from "../middlewares/user-validator.js";
+import { upload } from "../middlewares/multer.js";
 const router = Router();
 
 router.get("/", async (req, res, next) => {
@@ -23,15 +24,21 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.post("/", userValidator, async (req, res, next) => {
-  try {
-    // console.log(req.body);
-    const user = await userManager.register(req.body);
-    res.json(user);
-  } catch (error) {
-    next(error);
+router.post(
+  "/",
+  [userValidator, upload.single("image")],
+  async (req, res, next) => {
+    try {
+      const user = await userManager.register({
+        ...req.body,
+        image: req.file.path,
+      });
+      res.json(user);
+    } catch (error) {
+      next(error);
+    }
   }
-});
+);
 
 router.put("/:id", async (req, res, next) => {
   try {

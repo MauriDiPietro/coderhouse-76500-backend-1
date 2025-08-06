@@ -1,9 +1,1 @@
-[
-  {
-    "id": "1",
-    "username": "Juan",
-    "email": "juan@mail.com",
-    "password": "d1156ff233ba11016095ad6e22223687a0d6cf339cf4b55fb0b3cfe0083f2b7d",
-    "secret": "*u�ɢ?��:��+�\na1\u0016hV&�4!�hr�a�CN�֋4\n�tL���D���J\\�9I���\u0018��U�D�!Z?\u0000�\u0010��\u000b��<w�sӫ�ڦy�z�1�0�ݪ/�\u0012���\u0007�\u0004H`ހ��B!r\u0001R�?[Ԃ&x3���"
-  }
-]
+[{"id":"1","username":"Juan","email":"juan@mail.com","password":"d1156ff233ba11016095ad6e22223687a0d6cf339cf4b55fb0b3cfe0083f2b7d","secret":"*u�ɢ?��:��+�\na1\u0016hV&�4!�hr�a�CN�֋4\n�tL���D���J\\�9I���\u0018��U�D�!Z?\u0000�\u0010��\u000b��<w�sӫ�ڦy�z�1�0�ݪ/�\u0012���\u0007�\u0004H`ހ��B!r\u0001R�?[Ԃ&x3���"},{"firstname":"Nahuel","lastname":"Molina","email":"nahuel1@mail.com","password":"c4744f016c501fc2c7f7e8114bd0ebfe6ccdac319525eb0d7e6b8fad739913d4","age":23,"secret":"�-2�T]\u0013s��xG�%�F�d�k\u000e��\u0014�l�]�\u0006�#\u001f�Zw�\u0001H�a4�}��0d:���}6�M�I�<+Sfг2���/t_�xN�\u0007�p����\u0012;l��g�\u0002�#��\b�:e�W\u000f��j�������e�6YI��!'�!"},{"firstname":"Nahuel","lastname":"Molina","email":"nahuel1@mail.com","password":"c260dec2f255edba89305073e324214fceaebdf69fa2d3502d01c92ea56d4030","age":23,"secret":"p\u001f���z\u0000b�.�\u0018�z��w��%.G��ʴ5�\u0012��pݙʑ�k�\u001e�`�#\u0012�l�h\n�\u00032[��\n�\u0001f���g��Wo�z�����vY\u001713��\u0004�^�#Ѵ,TŞ�Y3�\u0004�/,��\u0010\u0014j`�*#cze7U#��\u0004���nS\u0015"}]
